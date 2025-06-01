@@ -10,7 +10,7 @@ def bfs(grid, start, goal):
 
     while queue:
         #Remove the first node(coordinate, tuple) from the list queue
-        current = _____.pop(0)
+        current = queue.pop(0)
         #Once we have reached the goal, break out of the loop
         if current == goal:
             break
@@ -28,14 +28,14 @@ def bfs(grid, start, goal):
         #Check if the position has not been visited yet
         if new_position not in visited:
             #Mark it as visited and append the position to the list
-            visited[new_position] = _____
-            _____.append(new_position)
+            visited[new_position] = True
+            queue.append(new_position)
             #Reconstruct the path from the goal to the start
             path = []
             step = goal
     while step is not None:
         path.append(step)
-        step = ______.get(step)
+        step = visited.get(step)
         #Return the path
         return path
 
@@ -52,6 +52,6 @@ start = (0, 0)
 goal = (4, 4)
 #Call the BFS function and print the actual path(from start to end)
 path = bfs(grid, start, goal)
-print("Path from start to goal: ", _______)
+print("Path from start to goal: ", path)
 
 
