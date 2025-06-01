@@ -28,7 +28,7 @@ def bfs(grid, start, goal):
         #Check if the position has not been visited yet
         if new_position not in visited:
             #Mark it as visited and append the position to the list
-            visited[new_position] = True
+            visited[new_position] = current
             queue.append(new_position)
             #Reconstruct the path from the goal to the start
             path = []
