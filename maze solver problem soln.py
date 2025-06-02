@@ -36,7 +36,7 @@ def bfs(grid, start, goal):
     while step is not None:
         path.append(step)
         step = visited.get(step)
-    #AN EXTRA STEP ADDED SO AS TO OBTAIN PATH FROM START TO GOAL, AND NOT GOAL TO START
+    #AN EXTRA LINE ADDED SO AS TO OBTAIN PATH FROM START TO GOAL, AND NOT GOAL TO START
     path.reverse()
     #Return the path
     return path
