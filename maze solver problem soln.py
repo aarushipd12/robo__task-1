@@ -1,11 +1,11 @@
 #Maze-Task
-'''Direction list: for traversing Up, Down, Left, Right, each tuple corresponds to the direction of motion'''
+#Direction list: for traversing Up, Down, Left, Right, each tuple corresponds to the direction of motion
 DIRECTIONS = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
 def bfs(grid, start, goal):
     #List definition for bfs
     queue = [start]
-    #Dictionary to stor visited nodes and their previous nodes
+    #Dictionary to store visited nodes and their previous nodes
     visited = {start: None}
 
     while queue:
@@ -15,29 +15,31 @@ def bfs(grid, start, goal):
         if current == goal:
             break
 
-    #Check motion across all possible directions (Up, Down, Left, Right)
-    for direction in DIRECTIONS:
-        #Calculate the new position
-        new_row = current[0] + direction[0]
-        new_col = current[1] + direction[1]
+        #Check motion across all possible directions (Up, Down, Left, Right)
+        for direction in DIRECTIONS:
+            #Calculate the new position
+            new_row = current[0] + direction[0]
+            new_col = current[1] + direction[1]
 
-        new_position = (new_row, new_col)
+            new_position = (new_row, new_col)
     
-    #Check if new position is within bounds(grid dimensions) and not an obstacle
-    if (0 <= new_row < len(grid)) and (0 <= new_col < len(grid[0])) and grid[new_row][new_col] == 0:
-        #Check if the position has not been visited yet
-        if new_position not in visited:
-            #Mark it as visited and append the position to the list
-            visited[new_position] = current
-            queue.append(new_position)
-            #Reconstruct the path from the goal to the start
-            path = []
-            step = goal
+            #Check if new position is within bounds(grid dimensions) and not an obstacle
+            if (0 <= new_row < len(grid)) and (0 <= new_col < len(grid[0])) and grid[new_row][new_col] == 0:
+                #Check if the position has not been visited yet
+                if new_position not in visited:
+                    #Mark it as visited and append the position to the list
+                    visited[new_position] = current
+                    queue.append(new_position)
+    #Reconstruct the path from the goal to the start
+    path = []
+    step = goal
     while step is not None:
         path.append(step)
         step = visited.get(step)
-        #Return the path
-        return path
+    #AN EXTRA STEP ADDED SO AS TO OBTAIN PATH FROM START TO GOAL, AND NOT GOAL TO START
+    path.reverse()
+    #Return the path
+    return path
 
 #Occupancy grid (0 is a free space, 1 is an obstacle)
 grid = [
@@ -54,4 +56,7 @@ goal = (4, 4)
 path = bfs(grid, start, goal)
 print("Path from start to goal: ", path)
 
-
+'''
+OUTPUT:
+Path from start to goal:  [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2), (2, 1), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]
+'''
