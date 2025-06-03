@@ -24,4 +24,35 @@ This gap will keep increasing with increase in grid size.
 
 
 (------Q2-------)
+Breadth first search (bfs) is an algorithm which is most suited for searching for the shortest path in unweighted graphs. In real world applications, in case of a maze solver mouse trying to exit from a maze, if it uses the bfs algorithm, it will have to look for all possible directions at each node, hence 1st discovering all possiblities at each breadth/level.
+
+
+
+IS THIS TRUE??--------------
+But a mouse to exit from the maze would rather follow more of a hit and trial approach, in which it would (and it should) follow one path upto its depth/ go farthest, uptil it reaches a dead-end. Then, it should turn back and take the other turn at the previous node (where it had chosen the path that lead to a dead-end) and now go uptil the depth/ go farthest along that route, until it reaches another dead-end then again turn back, and so on, it will be able to reach the exit more efficiently. This is the dfs algorithm (depth first search)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
