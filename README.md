@@ -37,7 +37,9 @@ A mouse to exit from the maze would rather follow more of a hit and trial approa
 (-------Q3------)
 
 new_row = current[0] + direction[0]
+
 new_col = current[1] + direction[1]
+
 new_position = (new_row, new_column)
 
 To ensure that the mouse traverses lesser distance we can make the following changes:-
