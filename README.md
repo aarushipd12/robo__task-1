@@ -3,7 +3,7 @@
 
 We have used python list for (a)queue-(that stores coordinates of the same breadth/ level to be traversed) and, (b)DIRECTIONS-(that stores the direction vectors for up-down-left-right movement). Here, the grid was 5x5. 
 Use of specific data structures can directly affect memory usage.
-Basically, we want to increase efficiency (mainly- time efficiency, performance, memory usage)
+Basically, we want to increase efficiency (mainly- time efficiency, performance, memory usage) as grid size increases.
 
 (a)In 'queue', storing data as a list can rather be made from a specialized data structure- deque(DOUBLE- ENDED QUEUE). It is a specialized data structure, specific for Queue(that works on FIFO model) that has a pointer at both ends- front and rear. Thus, appending or removing items from a deque is much faster. So time efficiency increases. 
 The main plus point that makes deque better than lists, **here**, is when we need to remove the first node(coordinate, tuple) from queue. When it is a list, we use the .pop(0) function, which involves returning the first node and shifting all rest of the elements to the immediate left index. But, when it is a deque, we use the .popleft() function which makes it much faster because a deque is implemented as a doubly linked list, so removing from either end is always fast and does not require the shifting of elements. Deque is best for faaster queue or stack operations and hence the choice. 
@@ -27,11 +27,9 @@ This gap will keep increasing with increase in grid size.
 
 Breadth first search (bfs) is an algorithm which is most suited for searching for the shortest path in unweighted graphs. Thus, it is most suited for such maze solving. In real world applications, in case of a maze solver mouse trying to exit from a maze using the bfs algorithm, it will have to store information about all possible directions at each node, hence first discovering all possiblities at each breadth/level. This requires more memory to store informations of all nodes at current depth before moving to the next node.
 
-Moreover, in very large and dense maze, it can become very complex and hence slower, as it stores memory of all nodes at a depth level.
+Moreover, in my opinion, in a very large and dense maze, it can become very complex and hence slower, as it stores memory of all nodes at a depth level.
 
-In my opinion,
 
-A mouse to exit from the maze would rather follow more of a hit and trial approach, in which it would (and it should) follow one path upto its depth/ go farthest, uptil it reaches a dead-end. Then, it should turn back and take the other turn at the previous node (where it had chosen the path that lead to a dead-end) and now go uptil the depth/ go farthest along that route, until it reaches another dead-end then again turn back, and so on, it will be able to reach the exit more efficiently. This is called the dfs algorithm (depth first search). But, this can 
 
 
 (-------Q3------)
