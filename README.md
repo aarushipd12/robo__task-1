@@ -24,12 +24,29 @@ This gap will keep increasing with increase in grid size.
 
 
 (------Q2-------)
-Breadth first search (bfs) is an algorithm which is most suited for searching for the shortest path in unweighted graphs. In real world applications, in case of a maze solver mouse trying to exit from a maze, if it uses the bfs algorithm, it will have to look for all possible directions at each node, hence 1st discovering all possiblities at each breadth/level.
+
+Breadth first search (bfs) is an algorithm which is most suited for searching for the shortest path in unweighted graphs. Thus, it is most suited for such maze solving. In real world applications, in case of a maze solver mouse trying to exit from a maze using the bfs algorithm, it will have to store information about all possible directions at each node, hence first discovering all possiblities at each breadth/level. This requires more memory to store informations of all nodes at current depth before moving to the next node.
+
+Moreover, in very large and dense maze, it can become very complex and hence slower, as it stores memory of all nodes at a depth level.
+
+In my opinion,
+
+A mouse to exit from the maze would rather follow more of a hit and trial approach, in which it would (and it should) follow one path upto its depth/ go farthest, uptil it reaches a dead-end. Then, it should turn back and take the other turn at the previous node (where it had chosen the path that lead to a dead-end) and now go uptil the depth/ go farthest along that route, until it reaches another dead-end then again turn back, and so on, it will be able to reach the exit more efficiently. This is called the dfs algorithm (depth first search). But, this can 
+
+
+(-------Q3------)
+
+new_row = current[0] + direction[0]
+new_col = current[1] + direction[1]
+new_position = (new_row, new_column)
+
+To ensure that the mouse traverses lesser distance we can make the following changes:-
+
+DIRECTIONS= [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
 
 
 
-IS THIS TRUE??--------------
-But a mouse to exit from the maze would rather follow more of a hit and trial approach, in which it would (and it should) follow one path upto its depth/ go farthest, uptil it reaches a dead-end. Then, it should turn back and take the other turn at the previous node (where it had chosen the path that lead to a dead-end) and now go uptil the depth/ go farthest along that route, until it reaches another dead-end then again turn back, and so on, it will be able to reach the exit more efficiently. This is the dfs algorithm (depth first search)
+
 
 
 
