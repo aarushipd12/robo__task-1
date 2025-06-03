@@ -44,7 +44,11 @@ To ensure that the mouse traverses lesser distance we can make the following cha
 
 DIRECTIONS= [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
 
+Running the code after modification, we get the shortest distance path:
 
+output;
+
+Path from start to goal:  [(0, 0), (0, 1), (1, 2), (2, 1), (3, 0), (4, 1), (4, 2), (4, 3), (4, 4)]
 
 
 
