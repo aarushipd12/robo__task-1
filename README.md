@@ -5,7 +5,7 @@ We have used python list for (a)queue-(that stores coordinates of the same bread
 Use of specific data structures can directly affect memory usage.
 Basically, we want to increase efficiency (mainly- time efficiency, performance, memory usage) as grid size increases.
 
-(a)In 'queue', storing data as a list can rather be made from a specialized data structure- deque(DOUBLE- ENDED QUEUE). It is a specialized data structure, specific for Queue(that works on FIFO model) that has a pointer at both ends- front and rear. Thus, appending or removing items from a deque is much faster. So time efficiency increases. 
+(a)In 'queue', storing data as a list can rather be made from a specialized data structure- deque(DOUBLE- ENDED QUEUE). It is a specialized data structure, that has a pointer at both ends- front and rear. Thus, appending or removing items from a deque is much faster. So time efficiency increases. 
 The main plus point that makes deque better than lists, **here**, is when we need to remove the first node(coordinate, tuple) from queue. When it is a list, we use the .pop(0) function, which involves returning the first node and shifting all rest of the elements to the immediate left index. But, when it is a deque, we use the .popleft() function which makes it much faster because a deque is implemented as a doubly linked list, so removing from either end is always fast and does not require the shifting of elements. Deque is best for faaster queue or stack operations and hence the choice. 
 
 When the code was run for a 10x10 grid:
