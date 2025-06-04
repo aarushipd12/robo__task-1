@@ -25,7 +25,7 @@ This gap will keep increasing with increase in grid size.
 
 (------Q2-------)
 
-Breadth first search (bfs) is an algorithm which is most suited for searching for the shortest path in unweighted graphs. Thus, it is most suited for such maze solving. In real world applications, in case of a maze solver mouse trying to exit from a maze using the bfs algorithm, it will have to store information about all possible directions at each node, hence first discovering all possiblities at each breadth/level. This requires more memory to store informations of all nodes at current depth before moving to the next node.
+Breadth first search (bfs) is an algorithm which is most suited for searching for the shortest path in unweighted graphs. Thus, it is most suited for such maze solving. In real world applications, in case of a maze solver mouse trying to exit from a maze using the bfs algorithm, it will have to store information about all possible directions at each node, hence first discovering all possiblities at each breadth/level. This requires more memory to store informations of all nodes at current depth before moving to the next node. This way, it can unnecesarily complicate a smaller/ simpler maze.
 
 Moreover, in a very large and dense maze, it can become very complex and hence slower, as it stores memory of all nodes at a depth level.
 
