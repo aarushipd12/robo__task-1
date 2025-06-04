@@ -16,10 +16,10 @@ Using list:
 Using deque:
   Elapsed time: 0.000068 seconds
 
-And, both gave the same path. Hence, using list required more than twice the time reuired using deque.
+And, both gave the same path. Hence, using list required more than twice the time required using deque.
 This gap will keep increasing with increase in grid size.
 
-(b)If the grid is larger (10x10), DIRECTIONS may also be stored in the built-in data structure, sets, which have faster traversing across its elements, and are unordered which is also not a problem for DIRECTIONS , as it only stores the direction vectors for up-down-left-right movement.
+(b)If the grid is larger (10x10), DIRECTIONS may also be stored in the built-in data structure, sets, which have faster traversing across its elements, and are unordered which is also not a problem for DIRECTIONS, as it only stores the direction vectors for up-down-left-right movement.
 
 
 
@@ -27,18 +27,12 @@ This gap will keep increasing with increase in grid size.
 
 Breadth first search (bfs) is an algorithm which is most suited for searching for the shortest path in unweighted graphs. Thus, it is most suited for such maze solving. In real world applications, in case of a maze solver mouse trying to exit from a maze using the bfs algorithm, it will have to store information about all possible directions at each node, hence first discovering all possiblities at each breadth/level. This requires more memory to store informations of all nodes at current depth before moving to the next node.
 
-Moreover, in my opinion, in a very large and dense maze, it can become very complex and hence slower, as it stores memory of all nodes at a depth level.
+Moreover, in a very large and dense maze, it can become very complex and hence slower, as it stores memory of all nodes at a depth level.
 
 
 
 
 (-------Q3------)
-
-new_row = current[0] + direction[0]
-
-new_col = current[1] + direction[1]
-
-new_position = (new_row, new_column)
 
 To ensure that the mouse traverses lesser distance we can make the following changes:-
 
@@ -49,6 +43,13 @@ Running the code after modification, we get the shortest distance path:
 Output;
 Path from start to goal:  [(0, 0), (0, 1), (1, 2), (2, 1), (3, 0), (4, 1), (4, 2), (4, 3), (4, 4)]
 
+BFS already guarantees the shortest path in steps for unweighted grids. By applying this modification in the code, it effectively helped reduce the no. of steps.
+
+But, there is a condition that must be applied in this code snippet, without which it will be practically impossible. The condition is- presence of free space in the vertex/turning point that has been skipped in the step to take a diagonal motion. For eg. consider (0,2) in the grid provided. If the value it holds is 1, that means a barrier is present, though it seems that diagonal movement across it is allowed, but when the walls/ barriers are practically put in place, it will restrict the diagonal movement of the mouse from (0,1) to (1,2). Hence, we need conditioning statements, attached file 'maze solver_task1_prob3.py' contains the modified code. 
+
+I have split the direction vectors list into the one for cardinal motion and other for diagonal motion, checked if there is free space at adjacent positions (so that it does not act as barrier) hence checked if diagonal motion can be allowed.
+
+Another way, that can ensure the mouse traverses lesser distance while traversing the maze is prioritizing directions towards the goal. Let's say, we have the starting point of the maze at (4,4) and goal at (0,9) in a 10x10 grid. Here, such a strategy can be useful, that can prioritize to order the directions in which the robot explores its next move, and checks the directions that move the robot closer to the goal first.
 
 
 
